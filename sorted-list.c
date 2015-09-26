@@ -17,11 +17,20 @@ int SLInsert(SortedListPtr list, void *newObj) {
 
         list->head = newHead;
 
+        return 1;
+
     }
 
     else {
 
+       // if (
 
+       /* SortedListPtr
+
+        while (list->head){
+
+
+        }*/
 
     }
 
