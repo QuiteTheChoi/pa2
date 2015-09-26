@@ -11,7 +11,7 @@
  */
 struct SortedList {
     int (*CompareFuncT)(void*, void*);
-    void (*DestructFunct)(void*);
+    void (*DestructFuncT)(void*);
     struct SortedList* head;
     struct SortedList* next;
     void* data;
