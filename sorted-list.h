@@ -30,9 +30,9 @@ typedef struct SortedListIterator* SortedListIteratorPtr;
  * type is opaque to you, you will need a comparator function to order
  * the objects in your sorted list.
  *
- * You can expect a comparator function to return -1 if the 1st object is
- * smaller, 0 if the two objects are equal, and 1 if the 2nd object is
- * smaller.
+ * You can expect a comparator function to return a negative value if the
+ * first object is smaller, 0 if the two objects are equal, and a positive
+ * value if the second object is smaller.
  *
  * Note that you are not expected to implement any comparator or destruct
  * functions.  You will be given a comparator function and a destruct
@@ -136,7 +136,7 @@ void * SLGetItem( SortedListIteratorPtr iter );
  * It should return a NULL when the end of the list has been reached.
  *
  * One complication you MUST consider/address is what happens if a
- * sorted list encapsulated within an iterator is modified while that
+ * sorted list associated with an iterator is modified while that
  * iterator is active.  For example, what if an iterator is "pointing"
  * to some object in the list as the next one to be returned but that
  * object is removed from the list using SLRemove() before SLNextItem()
