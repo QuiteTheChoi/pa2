@@ -9,9 +9,14 @@
 /*
  * Sorted list type.  You need to fill in the type as part of your implementation.
  */
-struct SortedList
-{
-};
+struct SortedList {
+    int (*CompareFuncT)(void*, void*);
+    void (*DestructFunct)(void*);
+    struct SortedList* head;
+    struct SortedList* next;
+    void* data;
+    int numReferences;
+};  
 typedef struct SortedList* SortedListPtr;
 
 
