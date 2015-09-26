@@ -1,13 +1,13 @@
-<<<<<<< HEAD
-SortedListPtr SLCreate(CompareFuncT cf, DestructFuncT df) {
-    
-}
-=======
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 #include "sorted-list.h"
+
+
+SortedListPtr SLCreate(CompareFuncT cf, DestructFuncT df) {
+    
+}
 
 int SLInsert(SortedListPtr list, void *newObj) {
 
@@ -29,4 +29,3 @@ int SLInsert(SortedListPtr list, void *newObj) {
 }
 
 
->>>>>>> 3e625b4aab82424e4a34cb501f8d24a083189805
