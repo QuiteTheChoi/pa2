@@ -18,7 +18,7 @@ struct SortedList {
     int numReferences;
 };  
 typedef struct SortedList* SortedListPtr;
-
+typedef struct SortedList SortedList;
 
 /*
  * Iterator type for user to "walk" through the list item by item, from
