@@ -1,5 +1,5 @@
-all: sorted-list.h sorted-list.c main.c
-	gcc -g -o sorted-list sorted-list.c main.c
+all: sorted-list.h sorted-list.c
+	gcc -g -o sorted-list sorted-list.c
 
 clean:
 	rm -rf *.o sorted-list
