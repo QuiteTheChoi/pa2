@@ -4,9 +4,14 @@
 #include <ctype.h>
 #include "sorted-list.h"
 
-
 SortedListPtr SLCreate(CompareFuncT cf, DestructFuncT df) {
-    
+    SortedListPtr SL = (SortedListPtr)malloc(sizeof(SortedListPtr));
+    SL -> CompareFuncT = (CompareFuncT)malloc(sizeof(CompareFuncT));
+    SL -> CompareFuncT = cf;
+    SL -> DestructFuncT = (DestructFuncT)malloc(sizeof(DestructFuncT)); 
+    SL -> DestructFuncT = df;
+    SL -> head = (SortedListPtr)malloc(sizeof(SortedListPtr));
+    return SL;
 }
 
 int SLInsert(SortedListPtr list, void *newObj) {
