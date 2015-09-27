@@ -39,17 +39,6 @@ int SLInsert(SortedListPtr list, void *newObj) {
             return 1;
         }
 
-        
-
-          // list->head->next->
-
-       /* SortedListPtr
-
-        while (list->head){
-
-
-        }*/
-
     }
     return 0;
 }
