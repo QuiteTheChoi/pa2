@@ -53,8 +53,6 @@ int SLInsert(SortedListPtr list, void *newObj) {
 
         }
 
-<<<<<<< HEAD
-=======
         else {
             
            // SortedListPtr curr = list->head->next;
@@ -108,7 +106,6 @@ int SLInsert(SortedListPtr list, void *newObj) {
 
         }
 
->>>>>>> SLInsert
     }
 
 }
