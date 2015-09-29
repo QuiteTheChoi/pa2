@@ -11,10 +11,15 @@ SortedListPtr SLCreate(CompareFuncT cf, DestructFuncT df) {
     SL->DestructFuncT = (DestructFuncT)malloc(sizeof(DestructFuncT)); 
     SL->DestructFuncT = df;
     SL->head = (SortedListPtr)malloc(sizeof(SortedListPtr));
+    SL->head = NULL;
     SL->next = (SortedListPtr)malloc(sizeof(SortedListPtr));
+    SL->next = NULL;
     return SL;
 }
 
+/*Will insert nodes into sorted list, or create a head for new sorted list.
+ * Reutrn 1 if successful, 0 if any other case. The sorted list is in descending
+ * order*/
 int SLInsert(SortedListPtr list, void *newObj) {
 
     SortedListPtr temp = (SortedListPtr) malloc(sizeof(SortedList));
@@ -61,7 +66,7 @@ int SLInsert(SortedListPtr list, void *newObj) {
 
             SortedListPtr prev = NULL; /*Initializes prev pointer*/
 
-            while (curr != NULL) { /*While the pointer is not null*/
+            while (curr->next != NULL) { /*While the pointer is not null*/
 
                 int comp = list->CompareFuncT(curr->next->data, newObj); /*Stores the result of the comparison between curr->next's data and the new object in an int*/
 
@@ -69,8 +74,10 @@ int SLInsert(SortedListPtr list, void *newObj) {
 
                 if (comp < 0) { /*If curr->next's data is less than the new object*/
 
-                    prev->next = temp; /*prev->next is temp*/
-                    temp->next = curr->next; /*temp->next is curr->next, or prev->next->next*/
+                    temp->next = prev->next;
+                    prev->next = temp;                    
+                    //prev->next = temp; /*prev->next is temp*/
+                    //temp->next = curr->next; /*temp->next is curr->next, or prev->next->next*/
                     
                     return 1;
 
