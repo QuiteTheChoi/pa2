@@ -23,6 +23,7 @@ SortedListPtr SLCreate(CompareFuncT cf, DestructFuncT df) {
 int SLInsert(SortedListPtr list, void *newObj) {
 
     SortedListPtr temp = (SortedListPtr) malloc(sizeof(SortedList));
+
     temp->data = newObj;
    
     if (list->head == NULL) {
@@ -59,8 +60,6 @@ int SLInsert(SortedListPtr list, void *newObj) {
         }
 
         else {
-            
-           // SortedListPtr curr = list->head->next;
 
             SortedListPtr curr = list->head; /*Points to the head of the list*/
 
@@ -76,8 +75,6 @@ int SLInsert(SortedListPtr list, void *newObj) {
 
                     temp->next = prev->next;
                     prev->next = temp;                    
-                    //prev->next = temp; /*prev->next is temp*/
-                    //temp->next = curr->next; /*temp->next is curr->next, or prev->next->next*/
                     
                     return 1;
 
@@ -114,5 +111,23 @@ int SLInsert(SortedListPtr list, void *newObj) {
         }
 
     }
+
+}
+
+int SLRemove(SortedListPtr list, void *newObj) {
+
+    if (list == NULL) {
+
+        return 0;
+
+    }
+
+    else {
+
+
+
+    }
+
+    return 0;
 
 }
