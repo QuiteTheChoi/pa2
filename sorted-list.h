@@ -26,6 +26,7 @@ typedef struct SortedList SortedList;
  */
 struct SortedListIterator
 {
+    SortedListPtr CurrNode;
 };
 typedef struct SortedListIterator* SortedListIteratorPtr;
 

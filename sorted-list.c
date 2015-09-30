@@ -116,3 +116,20 @@ int SLInsert(SortedListPtr list, void *newObj) {
     }
 
 }
+
+SortedListIteratorPtr SLCreateIterator (SortedListPtr list) {
+    SortedListIteratorPtr iter;
+    
+    if (list == NULL || list->head == NULL) 
+        return NULL;
+    else {
+        iter = (SortedListIteratorPtr) malloc(sizeof(struct SortedListIterator));
+        iter->CurrNode = list->head;
+    }
+    return iter;
+}
+
+void* SLGetItem(SortedListIterator iter) {
+    SortedList
+    if 
+}

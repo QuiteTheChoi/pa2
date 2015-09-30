@@ -29,7 +29,7 @@ void testProg (SortedListPtr testing,void* ptr1) {
 }
 
 void printSortedList(SortedListPtr ptr) {
-    SortedListPtr curr = ptr->head;
+    SortedListPtr curr = ptr;
     while (curr != NULL) {
         printf("%G\n",*(double*)curr->data);
         curr = curr->next;
@@ -69,7 +69,9 @@ int main() {
     testProg(testing,ptr3);
     testProg(testing,ptr4);
     testProg(testing,ptr3);
+    
+    SortedListIteratorPtr SL = SLCreateIterator (testing);
 
-    printSortedList(testing);
+    printSortedList(SL->CurrNode);
     return 0;
 }
