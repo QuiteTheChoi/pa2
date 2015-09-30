@@ -44,6 +44,15 @@ void testProg (SortedListPtr testing,void* ptr1) {
         printf("IT DIDN'T INSERT\n");
 }
 
+
+void testProg2 (SortedListPtr testing,void* ptr1) {
+    if(SLRemove(testing,ptr1) == 1) {
+        printf("IT WAS REMOVED\n");
+    }
+    else
+        printf("IT WASN'T REMOVED\n");
+}
+
 void printSortedList(SortedListPtr ptr) {
     SortedListPtr curr = ptr;
     while (curr != NULL) {
@@ -63,9 +72,6 @@ void printSortedList2(SortedListPtr ptr) {
 }
 
 int main() {
-
-    printf("Main is working.\n");
-  
 
     double* test1 = (double*)malloc(sizeof(double)); 
     double* test2 = (double*)malloc(sizeof(double));
@@ -122,6 +128,11 @@ int main() {
     testProg(testing2,ptr6);
     testProg(testing2,ptr7);
     testProg(testing2,ptr8);
+
+    printSortedList2(testing2);
+
+
+    testProg2(testing2,ptr5);
 
     printSortedList2(testing2);
 
