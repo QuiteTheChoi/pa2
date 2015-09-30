@@ -20,6 +20,22 @@ void destroyDouble(){
     return;
 }
 
+int compareString(void* v1, void* v2) {
+    char* s1 = (char *)v1;
+    char* s2 = (char *)v2;
+
+    if (strcmp(s1, s2) < 0)
+        return -1;
+    else if (strcmp(s1, s2) > 0)
+        return 1;
+    else
+        return 0;
+}
+
+void destroyString(){
+    return;
+}
+
 void testProg (SortedListPtr testing,void* ptr1) {
     if(SLInsert(testing,ptr1) == 1) {
         printf("IT WAS INSERTED\n");
@@ -32,6 +48,15 @@ void printSortedList(SortedListPtr ptr) {
     SortedListPtr curr = ptr;
     while (curr != NULL) {
         printf("%G\n",*(double*)curr->data);
+        curr = curr->next;
+    }
+    return;
+}
+
+void printSortedList2(SortedListPtr ptr) {
+    SortedListPtr curr = ptr->head;
+    while (curr != NULL) {
+        printf("%s\n", (char*)curr->data);
         curr = curr->next;
     }
     return;
@@ -72,6 +97,36 @@ int main() {
     
     SortedListIteratorPtr SL = SLCreateIterator (testing);
 
+<<<<<<< HEAD
     printSortedList(SL->CurrNode);
+=======
+    printSortedList(testing);
+
+
+    char* test5 = (char*)malloc(sizeof(char)); 
+    char* test6 = (char*)malloc(sizeof(char));
+    char* test7 = (char*)malloc(sizeof(char));
+    char* test8 = (char*)malloc(sizeof(char));
+    
+    test5 = "hello";
+    test6 = "apple";
+    test7 = "mango";
+    test8 = "zebra";
+
+    void* ptr5 = test5;
+    void* ptr6 = test6;
+    void* ptr7 = test7;
+    void* ptr8 = test8;
+
+    SortedListPtr testing2 = SLCreate(compareString, destroyString);
+
+    testProg(testing2,ptr5);
+    testProg(testing2,ptr6);
+    testProg(testing2,ptr7);
+    testProg(testing2,ptr8);
+
+    printSortedList2(testing2);
+
+>>>>>>> 32151417402c9254c82b67989fe8a3669d3e0b78
     return 0;
 }
