@@ -114,7 +114,6 @@ int SLInsert(SortedListPtr list, void *newObj) {
 
 }
 
-<<<<<<< HEAD
 int SLRemove(SortedListPtr list, void *newObj) {
 
     if (list == NULL) {
@@ -131,7 +130,8 @@ int SLRemove(SortedListPtr list, void *newObj) {
 
     return 0;
 
-=======
+}
+
 SortedListIteratorPtr SLCreateIterator (SortedListPtr list) {
     SortedListIteratorPtr iter;
     
@@ -144,8 +144,7 @@ SortedListIteratorPtr SLCreateIterator (SortedListPtr list) {
     return iter;
 }
 
-void* SLGetItem(SortedListIterator iter) {
+/*void* SLGetItem(SortedListIterator iter) {
     SortedList
     if 
->>>>>>> 6befce3334a2f722c282763ce22354f4b14890ef
-}
+}*/
