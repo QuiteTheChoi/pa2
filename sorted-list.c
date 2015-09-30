@@ -114,6 +114,7 @@ int SLInsert(SortedListPtr list, void *newObj) {
 
 }
 
+<<<<<<< HEAD
 int SLRemove(SortedListPtr list, void *newObj) {
 
     if (list == NULL) {
@@ -130,4 +131,21 @@ int SLRemove(SortedListPtr list, void *newObj) {
 
     return 0;
 
+=======
+SortedListIteratorPtr SLCreateIterator (SortedListPtr list) {
+    SortedListIteratorPtr iter;
+    
+    if (list == NULL || list->head == NULL) 
+        return NULL;
+    else {
+        iter = (SortedListIteratorPtr) malloc(sizeof(struct SortedListIterator));
+        iter->CurrNode = list->head;
+    }
+    return iter;
+}
+
+void* SLGetItem(SortedListIterator iter) {
+    SortedList
+    if 
+>>>>>>> 6befce3334a2f722c282763ce22354f4b14890ef
 }
