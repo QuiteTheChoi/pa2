@@ -97,9 +97,7 @@ int main() {
     
     SortedListIteratorPtr SL = SLCreateIterator (testing);
 
-<<<<<<< HEAD
     printSortedList(SL->CurrNode);
-=======
     printSortedList(testing);
 
 
@@ -127,6 +125,5 @@ int main() {
 
     printSortedList2(testing2);
 
->>>>>>> 32151417402c9254c82b67989fe8a3669d3e0b78
     return 0;
 }
