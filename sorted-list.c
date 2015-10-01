@@ -246,7 +246,7 @@ void * SLNextItem(SortedListIteratorPtr iter) {
 
     else {
 
-        iter->currNode = temp->next;
+        iter->CurrNode = temp->next;
 
         return temp->next->data;
 
