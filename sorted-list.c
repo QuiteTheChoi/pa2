@@ -224,7 +224,6 @@ SortedListIteratorPtr SLCreateIterator (SortedListPtr list) {
     return iter;
 }
 
-<<<<<<< HEAD
 void* SLGetItem(SortedListIteratorPtr iter) {
     SortedListPtr temp = iter->CurrNode;
     if (temp == NULL){
@@ -234,9 +233,3 @@ void* SLGetItem(SortedListIteratorPtr iter) {
         return temp->data;
     }
 }
-=======
-/*void* SLGetItem(SortedListIterator iter) {
-    SortedList
-    if 
-}*/
->>>>>>> e01c6e1c380c122513dc063fa372e87577ff8a31

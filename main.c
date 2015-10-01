@@ -98,12 +98,7 @@ int main() {
     SortedListIteratorPtr SL = SLCreateIterator (testing);
 
     printSortedList(SL->CurrNode);
-<<<<<<< HEAD
     printSortedList(testing->head);
-=======
-//    printSortedList(testing);
->>>>>>> e01c6e1c380c122513dc063fa372e87577ff8a31
-
 
     char* test5 = (char*)malloc(sizeof(char)); 
     char* test6 = (char*)malloc(sizeof(char));
