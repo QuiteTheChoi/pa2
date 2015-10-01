@@ -23,13 +23,7 @@ void destroyDouble(){
 int compareString(void* v1, void* v2) {
     char* s1 = (char *)v1;
     char* s2 = (char *)v2;
-
-    if (strcmp(s1, s2) < 0)
-        return -1;
-    else if (strcmp(s1, s2) > 0)
-        return 1;
-    else
-        return 0;
+    return strcmp(s1, s2);
 }
 
 void destroyString(){
@@ -98,7 +92,7 @@ int main() {
     SortedListIteratorPtr SL = SLCreateIterator (testing);
 
     printSortedList(SL->CurrNode);
-    printSortedList(testing);
+    printSortedList(testing->head);
 
 
     char* test5 = (char*)malloc(sizeof(char)); 
@@ -124,6 +118,9 @@ int main() {
     testProg(testing2,ptr8);
 
     printSortedList2(testing2);
+    SortedListIteratorPtr StringIter = SLCreateIterator (testing2);
+
+    printf("%s\n",(char*)SLGetItem(StringIter));
 
     return 0;
 }
