@@ -1,12 +1,12 @@
 all: sorted-list.h sorted-list.c main.c
-	gcc -g -o sorted-list sorted-list.c main.c
+	gcc -g -o sl sorted-list.c main.c
 
 run:
-	./sorted-list
+	./sl
 
 debug:
-	gdb ./sorted-list
+	gdb ./sl
 
 clean:
-	rm -rf *.o sorted-list
-	rm -rf *.dSYM sorted-list
+	rm -rf *.o sl
+	rm -rf *.dSYM sl

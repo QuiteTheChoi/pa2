@@ -233,3 +233,23 @@ void* SLGetItem(SortedListIteratorPtr iter) {
         return temp->data;
     }
 }
+
+void * SLNextItem(SortedListIteratorPtr iter) {
+
+    SortedListPtr temp = iter->CurrNode;
+
+    if (temp->next == NULL) {
+
+        return NULL;
+
+    }
+
+    else {
+
+        iter->currNode = temp->next;
+
+        return temp->next->data;
+
+    }
+
+}
