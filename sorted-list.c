@@ -18,11 +18,12 @@ SortedListPtr SLCreate(CompareFuncT cf, DestructFuncT df) {
 }
 
 /*Will insert nodes into sorted list, or create a head for new sorted list.
- * Reutrn 1 if successful, 0 if any other case. The sorted list is in descending
+ * Return 1 if successful, 0 if any other case. The sorted list is in descending
  * order*/
 int SLInsert(SortedListPtr list, void *newObj) {
 
     SortedListPtr temp = (SortedListPtr) malloc(sizeof(SortedList));
+
     temp->data = newObj;
    
     if (list->head == NULL) {
@@ -59,8 +60,6 @@ int SLInsert(SortedListPtr list, void *newObj) {
         }
 
         else {
-            
-           // SortedListPtr curr = list->head->next;
 
             SortedListPtr curr = list->head; /*Points to the head of the list*/
 
@@ -76,8 +75,6 @@ int SLInsert(SortedListPtr list, void *newObj) {
 
                     temp->next = prev->next;
                     prev->next = temp;                    
-                    //prev->next = temp; /*prev->next is temp*/
-                    //temp->next = curr->next; /*temp->next is curr->next, or prev->next->next*/
                     
                     return 1;
 
@@ -117,6 +114,104 @@ int SLInsert(SortedListPtr list, void *newObj) {
 
 }
 
+int SLRemove(SortedListPtr list, void *newObj) {
+
+    if (list->head == NULL) { /*If the list has nothing in it*/
+
+        return 0; /*Nothing can be deleted*/
+
+    }
+
+    else { /*If the list's head has data*/
+
+        if (list->CompareFuncT(list->head->data, newObj) < 0) { /*If the head's data is smaller than the new object*/
+
+            return 0; /*Nothing can be deleted*/
+
+        }
+
+        else if (list->CompareFuncT(list->head->data, newObj) == 0) {  /*If the head's data and the new object are equal*/
+
+            if (list->head->next == NULL) { /*If there is nothing after the head*/
+
+                list->head = NULL; /*Makes the head null*/
+
+                return 1;
+
+            }
+
+            else { /*If there is something after the head*/
+
+                list->head = list->head->next; /*Makes the item after the head the new head*/
+
+                return 1;
+
+            }
+
+        }
+
+        else { /*If the head's data is greater than the new object*/
+
+            if (list->head->next == NULL) { /*If there is nothing after the head*/
+
+                return 0; /*Nothing can be deleted*/
+
+            }
+
+            else { /*If there is something after the head*/
+
+                SortedListPtr curr = list->head; /*Points to the head of the list*/
+
+                SortedListPtr prev = NULL; /*Initializes prev pointer*/
+
+                while (curr->next != NULL) { /*While the pointer is not null*/
+
+                    int comp = list->CompareFuncT(curr->next->data, newObj); /*Stores the result of the comparison between curr->next's data and the new object in an int*/
+
+                    prev = curr; /*Makes the previous pointer the current pointer*/
+
+                    if (comp < 0) { /*If curr->next's data is less than the new object*/
+
+                        return 0; /*Nothing can be deleted*/
+
+                    }
+
+                    else if (comp == 0) { /*If curr->next's data is equal to the new object*/
+
+                        prev->next = prev->next->next; /*Makes prev->next->next the item immediately following prev*/
+
+                        return 1;
+
+                    }
+
+                    else { /*If curr->next's data is greater than the new object*/
+                                   
+                        if (curr->next->next == NULL) { /*If curr->next->next is null*/
+                        
+                            return 0; /*Nothing can be deleted*/
+
+                        }
+
+                        else { /*If curr->next->next is not null*/
+
+                            curr = curr->next; /*Moves on to the next pointer and continues the loop*/
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+            return 0;
+
+        }
+
+    }
+
+}
+
 SortedListIteratorPtr SLCreateIterator (SortedListPtr list) {
     SortedListIteratorPtr iter;
     
@@ -129,6 +224,7 @@ SortedListIteratorPtr SLCreateIterator (SortedListPtr list) {
     return iter;
 }
 
+<<<<<<< HEAD
 void* SLGetItem(SortedListIteratorPtr iter) {
     SortedListPtr temp = iter->CurrNode;
     if (temp == NULL){
@@ -138,3 +234,9 @@ void* SLGetItem(SortedListIteratorPtr iter) {
         return temp->data;
     }
 }
+=======
+/*void* SLGetItem(SortedListIterator iter) {
+    SortedList
+    if 
+}*/
+>>>>>>> e01c6e1c380c122513dc063fa372e87577ff8a31

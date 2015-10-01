@@ -38,6 +38,15 @@ void testProg (SortedListPtr testing,void* ptr1) {
         printf("IT DIDN'T INSERT\n");
 }
 
+
+void testProg2 (SortedListPtr testing,void* ptr1) {
+    if(SLRemove(testing,ptr1) == 1) {
+        printf("IT WAS REMOVED\n");
+    }
+    else
+        printf("IT WASN'T REMOVED\n");
+}
+
 void printSortedList(SortedListPtr ptr) {
     SortedListPtr curr = ptr;
     while (curr != NULL) {
@@ -57,9 +66,6 @@ void printSortedList2(SortedListPtr ptr) {
 }
 
 int main() {
-
-    printf("Main is working.\n");
-  
 
     double* test1 = (double*)malloc(sizeof(double)); 
     double* test2 = (double*)malloc(sizeof(double));
@@ -92,7 +98,11 @@ int main() {
     SortedListIteratorPtr SL = SLCreateIterator (testing);
 
     printSortedList(SL->CurrNode);
+<<<<<<< HEAD
     printSortedList(testing->head);
+=======
+//    printSortedList(testing);
+>>>>>>> e01c6e1c380c122513dc063fa372e87577ff8a31
 
 
     char* test5 = (char*)malloc(sizeof(char)); 
@@ -121,6 +131,11 @@ int main() {
     SortedListIteratorPtr StringIter = SLCreateIterator (testing2);
 
     printf("%s\n",(char*)SLGetItem(StringIter));
+
+
+    testProg2(testing2,ptr5);
+
+    printSortedList2(testing2);
 
     return 0;
 }
