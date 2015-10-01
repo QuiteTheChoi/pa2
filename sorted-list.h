@@ -7,6 +7,15 @@
 #include <stdlib.h>
 
 /*
+ * Enum state for status of deletion on a node in SL. 
+ * True if deleted, false otherwise. 
+ */
+typedef enum state {
+    true,
+    false
+} deleted;
+
+/*
  * Sorted list type.  You need to fill in the type as part of your implementation.
  */
 struct SortedList {
@@ -15,7 +24,7 @@ struct SortedList {
     struct SortedList* head;
     struct SortedList* next;
     void* data;
-    int numReferences;
+    deleted isDeleted;
 };  
 typedef struct SortedList* SortedListPtr;
 typedef struct SortedList SortedList;
