@@ -12,8 +12,7 @@ int compareDouble(void* v1, void* v2) {
         return -1;
     else if (*d1 > *d2)
         return 1;
-    else
-        return 0;
+    else return 0;
 }
 
 void destroyDouble(){
@@ -125,7 +124,7 @@ int main() {
     printSortedList2(testing2);
     SortedListIteratorPtr StringIter = SLCreateIterator (testing2);
 
-    printf("%s\n",(char*)SLGetItem(StringIter));
+    printf("THIS IS A TEST%s\n",(char*)SLGetItem(StringIter));
 
 
     testProg2(testing2,ptr5);
