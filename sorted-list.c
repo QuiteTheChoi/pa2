@@ -124,6 +124,9 @@ int SLRemove(SortedListPtr list, void *newObj) {
                         if (temp->numPtr==0) {
                             free(temp);
                         }
+                        else if (temp->next != NULL) {
+                                temp->next->numPtr+=1;      //if its not null, incrememnt ptr. 
+                        }
                         return 1;
                     }
                     else { /*If curr->next's data is greater than the new object*/

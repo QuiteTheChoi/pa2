@@ -16,6 +16,11 @@ debug: sorted-list.h sorted-list.c main.c
 	gcc -g -o test sorted-list.c main.c
 	gdb ./test
 
+github:
+	git add .
+	git commit -m "Added Stuff - JCaverly"
+	git push
+
 clean:
 	rm -rf *.o sl
 	rm -rf *.a
