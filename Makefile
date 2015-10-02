@@ -12,8 +12,9 @@ main: main.c libsl.a
 run:
 	./sl
 
-debug:
-	gdb ./sl
+debug: sorted-list.h sorted-list.c main.c
+	gcc -g -o test sorted-list.c main.c
+	gdb ./test
 
 clean:
 	rm -rf *.o sl

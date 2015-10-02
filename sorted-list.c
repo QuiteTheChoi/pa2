@@ -26,17 +26,16 @@ int SLInsert(SortedListPtr list, void *newObj) {
     SortedListPtr temp = (SortedListPtr) malloc(sizeof(SortedList));
 
     temp->data = newObj;
+    temp->numPtr+=1;
    
     if (list->head == NULL) {
         list->head = temp;
-        temp->numPtr+=1;
         return 1;
     }
     else {
         if (list->CompareFuncT(list->head->data, newObj) < 0) { /*If the new object is greater than the head's data*/
             temp->next = list->head;
             list->head = temp;
-            temp->numPtr+=1;
             return 1;
         }
         else if (list->CompareFuncT(list->head->data, newObj) == 0) {  //Head and newObj is equal no need to insert data
@@ -44,7 +43,6 @@ int SLInsert(SortedListPtr list, void *newObj) {
         }
         else if (list->CompareFuncT(list->head->data, newObj) > 0 && list->head->next == NULL) { /*If the head's data is greater than the new object*/
             list->head->next = temp;
-            temp->numPtr+=1;
             return 1;
         }
         else {
@@ -57,7 +55,6 @@ int SLInsert(SortedListPtr list, void *newObj) {
 
                     temp->next = prev->next;
                     prev->next = temp;
-                    temp->numPtr+=1;
                     return 1;
                 }
                 else if (comp == 0) { /*If curr->next's data is equal to the new object*/
@@ -66,7 +63,6 @@ int SLInsert(SortedListPtr list, void *newObj) {
                 else { /*If curr->next's data is greater than the new object*/
                     if (curr->next->next == NULL) { /*If curr->next->next is null*/
                         curr->next->next = temp; /*curr->next->next is temp*/
-                        temp->numPtr+=1;
                         return 1;
                     }
                     else { /*If curr->next->next is not null*/
@@ -182,9 +178,10 @@ void * SLNextItem(SortedListIteratorPtr iter) {
     }
     else {
         iter->CurrNode = temp->next;
+        iter->CurrNode->numPtr+=1;
         temp1->numPtr-=1;
-        if (temp1->numPtr == 0);
+        if (temp1->numPtr == 0)
             free(temp1);
-        return temp->data;
+        return iter->CurrNode->data;
     }
 }

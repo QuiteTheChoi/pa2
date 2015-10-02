@@ -125,11 +125,25 @@ int main() {
     SortedListIteratorPtr StringIter = SLCreateIterator (testing2);
 
     printf("THIS IS A TEST%s\n",(char*)SLGetItem(StringIter));
+    printf("THIS IS A TEST%s\n",(char*)SLNextItem(StringIter));
+    printf("THIS IS A TEST%s\n",(char*)SLNextItem(StringIter));
+    
+    SortedListIteratorPtr iter = (SortedListIteratorPtr)malloc(sizeof(SortedListIteratorPtr));
 
+    iter->CurrNode = StringIter->CurrNode;
 
+    printf("THIS IS iter before something is removed %s\n",(char*)iter->CurrNode->data);
+    
+    
     testProg2(testing2,ptr5);
 
+printf("THIS IS iter after something is removed %s\n",(char*)iter->CurrNode->data);
+
     printSortedList2(testing2);
+
+    SLNextItem(StringIter);
+
+printf("THIS IS iter after something is freed %s\n",(char*)iter->CurrNode->data);
 
     return 0;
 }
