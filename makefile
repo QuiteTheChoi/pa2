@@ -16,9 +16,14 @@ debug: sorted-list.h sorted-list.c main.c
 	gcc -g -o test sorted-list.c main.c
 	gdb ./test
 
-github:
+git1:
 	git add .
 	git commit -m "Added Stuff - JCaverly"
+	git push
+
+git2:
+	git add .
+	git commit -m "Added stuff - JGetahun"
 	git push
 
 clean:
