@@ -172,15 +172,17 @@ void* SLGetItem(SortedListIteratorPtr iter) {
 
 void * SLNextItem(SortedListIteratorPtr iter) {
     SortedListPtr temp = iter->CurrNode;
-    if (temp->next == NULL) {
+    if (temp->next == NULL) {           // if last node, then nothing to return;
         return NULL;
     }
     else {
         iter->CurrNode = temp->next;
         iter->CurrNode->numPtr+=1;
         temp->numPtr-=1;
-        if (temp->numPtr == 0)
+        if (temp->numPtr == 0){
+            iter->CurrNode->numPtr-=1;
             free(temp);
+        }
         return iter->CurrNode->data;
     }
 }
