@@ -76,23 +76,14 @@ int SLInsert(SortedListPtr list, void *newObj) {
 }
 
 int SLRemove(SortedListPtr list, void *newObj) {
-
     if (list->head == NULL) { /*If the list has nothing in it*/
-
         return 0; /*Nothing can be deleted*/
-
     }
-
     else { /*If the list's head has data*/
-
         if (list->CompareFuncT(list->head->data, newObj) < 0) { /*If the head's data is smaller than the new object*/
-
             return 0; /*Nothing can be deleted*/
-
         }
-
         else if (list->CompareFuncT(list->head->data, newObj) == 0) {  /*If the head's data and the new object are equal*/
-
             if (list->head->next == NULL) { /*If there is nothing after the head*/
                 if (list->head->numPtr == 1) {      //if head is is only referenced by head
                     free(list->head);
