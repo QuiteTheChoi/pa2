@@ -151,6 +151,7 @@ SortedListIteratorPtr SLCreateIterator (SortedListPtr list) {
         return NULL;
     else {
         iter = (SortedListIteratorPtr) malloc(sizeof(struct SortedListIterator));
+        iter->DestructFuncT = (DestructFuncT)malloc(sizeof(DestructFuncT));
         iter->CurrNode = list->head;
         iter->CurrNode->numPtr+=1;
     }
