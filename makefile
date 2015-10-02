@@ -26,6 +26,18 @@ git2:
 	git commit -m "Added stuff - JGetahun"
 	git push
 
+vim1:
+	vim sorted-list.c
+
+vim2:
+	vim main.c
+
+vim3:
+	vim sorted-list.h
+	
+vim4:
+	vim makefile
+
 clean:
 	rm -rf *.o sl
 	rm -rf *.a
