@@ -98,6 +98,9 @@ int SLRemove(SortedListPtr list, void *newObj) {
                 if (temp->numPtr == 0) {            
                     free(temp);
                 }
+                else {
+                    list->head->numPtr+=1;
+                }
                 return 1;
             }
         }
