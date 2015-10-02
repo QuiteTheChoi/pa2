@@ -18,3 +18,4 @@ debug: sorted-list.h sorted-list.c main.c
 
 clean:
 	rm -rf *.o sl
+	rm -rf *.a
