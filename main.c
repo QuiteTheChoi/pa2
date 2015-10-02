@@ -15,8 +15,8 @@ int compareDouble(void* v1, void* v2) {
     else return 0;
 }
 
-void destroyDouble(){
-    return;
+void destroyDouble(void* ptr){
+    free(ptr);
 }
 
 int compareString(void* v1, void* v2) {
@@ -25,8 +25,8 @@ int compareString(void* v1, void* v2) {
     return strcmp(s1, s2);
 }
 
-void destroyString(){
-    return;
+void destroyString(void* ptr){
+   free(ptr);
 }
 
 void testProg (SortedListPtr testing,void* ptr1) {
