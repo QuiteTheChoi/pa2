@@ -12,4 +12,3 @@ main: main.c libsl.a
 clean:
 	rm -rf *.o sl
 	rm -rf *.a
-
