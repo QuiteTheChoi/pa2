@@ -86,7 +86,7 @@ int SLRemove(SortedListPtr list, void *newObj) {
         else if (list->CompareFuncT(list->head->data, newObj) == 0) {  /*If the head's data and the new object are equal*/
             if (list->head->next == NULL) { /*If there is nothing after the head*/
                 if (list->head->numPtr == 1) {      //if head is is only referenced by head
-                    free(list->head);
+                    list->DestructFuncT(list->head);
                 }
                 list->head = NULL; /*Makes the head null*/  
                 return 1;
@@ -96,7 +96,7 @@ int SLRemove(SortedListPtr list, void *newObj) {
                 list->head = list->head->next; /*Makes the item after the head the new head*/
                 temp->numPtr-=1;
                 if (temp->numPtr == 0) {            
-                    free(temp);
+                    list->DestructFuncT(temp);
                 }
                 else {
                     list->head->numPtr+=1;
@@ -122,7 +122,7 @@ int SLRemove(SortedListPtr list, void *newObj) {
                         prev->next = prev->next->next; /*Makes prev->next->next the item immediately following prev*/
                         temp->numPtr-=1;
                         if (temp->numPtr==0) {
-                            free(temp);
+                            list->DestructFuncT(temp);
                         }
                         else if (temp->next != NULL) {
                                 temp->next->numPtr+=1;      //if its not null, incrememnt ptr. 
@@ -152,6 +152,7 @@ SortedListIteratorPtr SLCreateIterator (SortedListPtr list) {
     else {
         iter = (SortedListIteratorPtr) malloc(sizeof(struct SortedListIterator));
         iter->DestructFuncT = (DestructFuncT)malloc(sizeof(DestructFuncT));
+        iter->DestructFuncT = list->DestructFuncT;
         iter->CurrNode = list->head;
         iter->CurrNode->numPtr+=1;
     }
@@ -174,7 +175,7 @@ void * SLNextItem(SortedListIteratorPtr iter) {
         iter->CurrNode = NULL;
         temp->numPtr-=1;
         if (temp->numPtr == 0)
-            free(temp);
+            iter->DestructFuncT(temp);
         return NULL;
     }
     else {
@@ -183,7 +184,7 @@ void * SLNextItem(SortedListIteratorPtr iter) {
         temp->numPtr-=1;
         if (temp->numPtr == 0){
             iter->CurrNode->numPtr-=1;
-            free(temp);
+            iter->DestructFuncT(temp);
         }
         return iter->CurrNode->data;
     }
