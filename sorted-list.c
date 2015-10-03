@@ -189,3 +189,11 @@ void * SLNextItem(SortedListIteratorPtr iter) {
         return iter->CurrNode->data;
     }
 }
+
+void SLDestroy(SortedListPtr list) {
+    free(list);
+}
+
+void SLDestroyIterator(SortedListIteratorPtr iter) {
+    free(iter);
+}

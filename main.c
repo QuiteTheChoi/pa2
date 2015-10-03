@@ -137,13 +137,13 @@ int main() {
     
     testProg2(testing2,ptr5);
 
-printf("THIS IS iter after something is removed %s\n",(char*)iter->CurrNode->data);
+    printf("THIS IS iter after something is removed %s\n",(char*)iter->CurrNode->data);
 
     printSortedList2(testing2);
 
     SLNextItem(StringIter);
 
-printf("THIS IS iter after something is freed %s\n",(char*)iter->CurrNode->data);
+    printf("THIS IS iter after something is freed %s\n",(char*)iter->CurrNode->data);
 
     return 0;
 }
