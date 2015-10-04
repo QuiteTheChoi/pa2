@@ -130,7 +130,16 @@ int main() {
     printf("THIS IS A TEST OF ITERATOR %s\n",(char*)SLNextItem(StringIter));
     
     testProg2(testing2,ptr5);
+
+    printf("THIS IS A TEST OF ITERATOR ON THE NODE THAT WAS REMOVED %s\n",(char*)SLGetItem(StringIter));
+
     printSortedList2(testing2);
     SLNextItem(StringIter);
+
+    SLDestroy(testing);
+    SLDestroy(testing2);
+
+    SLDestroyIterator(SL);
+    SLDestroyIterator(StringIter);
     return 0;
 }
