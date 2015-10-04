@@ -47,7 +47,7 @@ void testProg2 (SortedListPtr testing,void* ptr1) {
 }
 
 void printSortedList(SortedListPtr ptr) {
-    SortedListPtr curr = ptr;
+    SortedListPtr curr = ptr->head;
     while (curr != NULL) {
         printf("%G\n",*(double*)curr->data);
         curr = curr->next;
@@ -81,9 +81,6 @@ int main() {
     void* ptr3 = test3;
     void* ptr4 = test4;
 
-    printf("%G, %G\n", *test1, *test2);
-    printf("%d\n",(int)(sizeof(CompareFuncT)));
-
     SortedListPtr testing = SLCreate(compareDouble, destroyDouble);
 
     testProg(testing,ptr1);
@@ -94,13 +91,14 @@ int main() {
     testProg(testing,ptr4);
     testProg(testing,ptr3);
     
-    SortedListIteratorPtr SL = SLCreateIterator (testing);
+    printSortedList(testing);
 
-    SLNextItem(SL);
-    printSortedList(testing->head);
-    printf("\n");
-    printSortedList(SL->CurrNode);
+    SortedListIteratorPtr SL = SLCreateIterator (testing);
+    printf("THE FIRST NODE IS: %G\n",*(double*)SL->CurrNode->data);
     
+    SLNextItem(SL);
+    printf("AFTER FIRST NODE IS: %G\n",*(double*)SL->CurrNode->data);
+
     char* test5 = (char*)malloc(sizeof(char)); 
     char* test6 = (char*)malloc(sizeof(char));
     char* test7 = (char*)malloc(sizeof(char));
@@ -127,17 +125,12 @@ int main() {
     printSortedList2(testing2);
     SortedListIteratorPtr StringIter = SLCreateIterator (testing2);
 
-    printf("THIS IS A TEST %s\n",(char*)SLGetItem(StringIter));
-    printf("THIS IS A TEST %s\n",(char*)SLNextItem(StringIter));
-    printf("THIS IS A TEST %s\n",(char*)SLNextItem(StringIter));
+    printf("THIS IS A TEST OF ITERATOR %s\n",(char*)SLGetItem(StringIter));
+    printf("THIS IS A TEST OF ITERATOR %s\n",(char*)SLNextItem(StringIter));
+    printf("THIS IS A TEST OF ITERATOR %s\n",(char*)SLNextItem(StringIter));
     
-    SortedListIteratorPtr iter = (SortedListIteratorPtr)malloc(sizeof(SortedListIteratorPtr));
-    iter->CurrNode = StringIter->CurrNode;
-    printf("THIS IS iter before something is removed %s\n",(char*)iter->CurrNode->data);
     testProg2(testing2,ptr5);
-    printf("THIS IS iter after something is removed %s\n",(char*)iter->CurrNode->data);
     printSortedList2(testing2);
     SLNextItem(StringIter);
-    printf("THIS IS iter after something is freed %s\n",(char*)iter->CurrNode->data);
     return 0;
 }
