@@ -9,23 +9,6 @@ sorted-list.o: sorted-list.c sorted-list.h
 main: main.c libsl.a
 	gcc -o sl main.c libsl.a
 
-run:
-	./sl
-
-debug: sorted-list.h sorted-list.c main.c
-	gcc -g -o test sorted-list.c main.c
-	gdb ./test
-
-git1:
-	git add .
-	git commit -m "Added Stuff - JCaverly"
-	git push
-
-git2:
-	git add .
-	git commit -m "Added stuff - JGetahun"
-	git push
-
 clean:
 	rm -rf *.o sl
 	rm -rf *.a
