@@ -141,5 +141,15 @@ int main() {
 
     SLDestroyIterator(SL);
     SLDestroyIterator(StringIter);
+//    free(test1);
+ //   free(test2);
+  //  free(test3);
+   // free(test4);
+    //free(test5);
+    //free(test6);
+    //free(test7);
+    //free(test8);
+    
     return 0;
+
 }
